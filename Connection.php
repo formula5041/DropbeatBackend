@@ -9,5 +9,3 @@
     $pdo = new PDO($dns, $db_user, $db_pass);
 
 ?>
-
-<!-- http://localhost/DropbeatBackend/register.php -->

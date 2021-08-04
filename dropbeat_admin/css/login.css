@@ -1,0 +1,116 @@
+* {
+    box-sizing: border-box;
+  }
+  
+body{
+    margin: 0;
+    background-color: #222222;
+}
+
+/* ------logo區------ */
+div.top{
+    /* border: 1px solid red; */
+    height: 25vh;
+    background-color: #222222;
+    padding-top: 25px;
+    padding-left: 40px;
+}
+
+div.top > div.logoblock{
+    /* border: 1px solid yellow; */
+    
+}
+
+div.top div.logoblock > img{
+    width: 180px;
+
+}
+
+/* ------中間登入區------ */
+div.main{
+    /* border: 1px solid green; */
+    display: flex;
+    
+}
+
+div.left{
+    /* border: 1px solid blue; */
+    width: 43%;
+    background-color: #222222;
+}
+
+/* ------登入input白底區------ */
+div.signblock{ 
+    /* border: 1px solid purple; */
+    height: 52vh;
+    width: 50%;
+    background-color: #ffffff;
+    padding: 10px;
+}
+
+div.signblock > h2{
+    margin-bottom: 40px;
+    padding-left: 40px;
+}
+
+div.signblock form > label{
+    padding-left: 20%;
+    padding-top: 20px;
+}
+
+div.signblock form label > input{
+    margin-top: 10px;
+}
+
+div.signblock form label > input:last-child{
+    margin-top: 15px;
+}
+
+div.btnblock{
+    /* border: 1px solid orange; */
+    margin-top: 30px;
+    display: flex;
+    flex-direction:row;
+    justify-content:flex-end;;
+    padding: 20px 30px;
+}
+
+div.btnblock > button.clean{
+    border: 0px;
+    width: 100px;
+    border-radius: 10px;
+    padding: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+div.btnblock > button.subbutton{
+    border: 0px;
+    margin-left: 10px;
+    width: 100px;
+    border-radius: 10px;
+    background-color: #FF9D82;
+    color: white;
+    font-weight: bold;
+}
+
+div.btnblock button.subbutton > a{
+    color: white;
+    text-decoration: none;
+    padding: 5px;
+}
+
+div.btnblock button.subbutton > a:visited{
+    color:white;
+}
+
+div.right{
+    /* border: 1px solid blue; */
+    width: 12%;
+    background-color: #222222;
+}
+
+
+
+
+

@@ -7,7 +7,7 @@
     // $setup_date = htmlspecialchars($_POST["setup_date"]);
     $content = htmlspecialchars($_POST["content"]);
 
-    $sql= "INSERT INTO MESSAGE_MUS(message_id, member, musician, setup_date, content, report, remove) VALUE (?, ?, ?, NOW(), ?, 0, 0 )";
+    $sql= "INSERT INTO MESSAGE_MUS(message_mus_id, member, musician, setup_date, content, report, remove) VALUE (?, ?, ?, NOW(), ?, 0, 0 )";
 
     $statement = $pdo ->prepare($sql);
     $statement -> bindValue(1, $message_id);

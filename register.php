@@ -7,13 +7,25 @@
     $pwd = htmlspecialchars($_POST["pwd"]);
     $birthday = htmlspecialchars($_POST["birthday"]);
 
-    $sql= "INSERT INTO MEMBER(member_id, account, password, email, birthday, setup_date, alter_date, suspend) VALUE (0, ?, ?, ?, ?, NOW(), NOW(), 0 )";
+    // $sql= "INSERT INTO MEMBER(member_id, member_name, account, password, email, birthday, setup_date, member_photo, alter_date, suspend) VALUE (0, ?, ?, ?, ?, ?, NOW(), ?, NOW(), 0 )";
+    $sql= "INSERT INTO MEMBER(member_id, member_name, account, password, email, birthday, setup_date, member_photo, alter_date, suspend) VALUE (0, :nname, :account, :pwd, :email, :birthday, NOW(), :headshot, NOW(), 0 )";
+
+    // $statement = $pdo ->prepare($sql);
+    // $statement -> bindParam(1, $account);
+    // $statement -> bindParam(2, $account);
+    // $statement -> bindParam(3, $pwd);
+    // $statement -> bindParam(4, $email);
+    // $statement -> bindParam(5, $birthday);
+    // $statement -> bindValue(6, 'https://reurl.cc/XWMenM');
+    // $statement -> execute();
 
     $statement = $pdo ->prepare($sql);
-    $statement -> bindValue(1, $account);
-    $statement -> bindValue(2, $pwd);
-    $statement -> bindValue(3, $email);
-    $statement -> bindValue(4, $birthday);
+    $statement -> bindParam(":nname", $account);
+    $statement -> bindParam(":account", $account);
+    $statement -> bindParam(":pwd", $pwd);
+    $statement -> bindParam(":email", $email);
+    $statement -> bindParam(":birthday", $birthday);
+    $statement -> bindValue(":headshot", 'https://reurl.cc/XWMenM');
     $statement -> execute();
 
 ?>

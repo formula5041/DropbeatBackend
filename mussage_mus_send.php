@@ -4,7 +4,6 @@
     $message_id = htmlspecialchars($_POST["message_id"]);
     $member = htmlspecialchars($_POST["member"]);
     $musician = htmlspecialchars($_POST["musician"]);
-    // $setup_date = htmlspecialchars($_POST["setup_date"]);
     $content = htmlspecialchars($_POST["content"]);
 
     $sql= "INSERT INTO MESSAGE_MUS(message_mus_id, member, musician, setup_date, content, report, remove) VALUE (?, ?, ?, NOW(), ?, 0, 0 )";

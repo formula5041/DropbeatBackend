@@ -3,7 +3,7 @@
 
     $initiator = htmlspecialchars($_POST["initiator"]);
 
-    $sql = "SELECT donate_id, initiator, donate_name, info, goal, end_date, donate_photo FROM DONATE where initiator = ? ";
+    $sql = "SELECT * FROM DONATE where initiator = ? ";
 
     $statement = $pdo->prepare($sql);
     $statement->bindValue(1, $_POST["initiator"]);

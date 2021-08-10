@@ -1,22 +1,25 @@
 <?php
     include('../Connection.php');
-    
-
-    $length = htmlspecialchars($_POST["length"]);
+    $nowChange = htmlspecialchars($_POST["nowChange"]);
     $donate = htmlspecialchars($_POST["donate"]);
-    // 刪除
+    $length = htmlspecialchars($_POST["length"]);
     for ($i = 0; $i < $length; $i++) {
         $sql= "DELETE from DONATEOPTION where donate = ?";
         $statement = $pdo ->prepare($sql);
         $statement -> bindValue(1, $donate);
         $statement -> execute();
     }
-    // 新增
-    // 這個是照片另外處理
-
 
     for ($i = 0; $i < $length; $i++) {
-        // if ($changeNum[$i] == '1'){
+        $changeArr = $nowChange[$i*2];
+        if ($changeArr == '0'){
+            echo 'nochange';
+            $file_arr = 'file'.$i;
+            $file = ($_POST[$file_arr]);
+            $theRealPath = $file;
+            echo $theRealPath;
+            echo "<br>";
+        } else {
             echo 'ischange';
             //取得上傳的檔案資訊=======================================
             $fileArr = 'file'.$i;
@@ -29,18 +32,11 @@
             $ServerRoot = $_SERVER["DOCUMENT_ROOT"];
             $filePath = "http://localhost/DropbeatBackend/UploadImg/".$fileName_arr;
             $safePics = $ServerRoot."/DropbeatBackend/UploadImg/".$fileName_arr;
-    
             move_uploaded_file($filePath_Temp, $safePics);
             $theRealPath = $filePath;
-
-        // }
-        // if ($changeNum[$i] == '0') {
-            // echo 'nochange';
-            // $file_arr = 'file'.$i;
-            // $file = htmlspecialchars($_POST["file"]);
-            // $theRealPath = $file;
-        // }
-
+            echo $theRealPath;
+            echo "<br>";
+        }
         $donate_option_id_arr = 'donate_option_id'.$i;
         $donate_option_id = htmlspecialchars($_POST[$donate_option_id_arr]);
 
@@ -70,4 +66,3 @@
         $statement -> execute();
     }
 ?>
-

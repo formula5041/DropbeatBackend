@@ -1,6 +1,6 @@
 <?php
     include('../Connection.php');
-    $nowChange = htmlspecialchars($_POST["nowChange"]);
+    $nowChange = htmlspecialchars($_POST["nowChange"]); // [0, 0, 0, 0] 用來判斷哪幾個是有修改
     $donate = htmlspecialchars($_POST["donate"]);
     $length = htmlspecialchars($_POST["length"]);
     for ($i = 0; $i < $length; $i++) {
@@ -11,7 +11,7 @@
     }
 
     for ($i = 0; $i < $length; $i++) {
-        $changeArr = $nowChange[$i*2];
+        $changeArr = $nowChange[$i*2]; // *2是因為$nowChange[0,0,0,0]是字串(抓偶數)
         if ($changeArr == '0'){
             echo 'nochange';
             $file_arr = 'file'.$i;

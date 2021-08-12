@@ -3,13 +3,14 @@
     $nowChange = htmlspecialchars($_POST["nowChange"]); // [0, 0, 0, 0] 用來判斷哪幾個是有修改
     $donate = htmlspecialchars($_POST["donate"]);
     $length = htmlspecialchars($_POST["length"]);
+    // 刪除內容
     for ($i = 0; $i < $length; $i++) {
         $sql= "DELETE from DONATEOPTION where donate = ?";
         $statement = $pdo ->prepare($sql);
         $statement -> bindValue(1, $donate);
         $statement -> execute();
     }
-
+    
     for ($i = 0; $i < $length; $i++) {
         $changeArr = $nowChange[$i*2]; // *2是因為$nowChange[0,0,0,0]是字串(抓偶數)
         if ($changeArr == '0'){
@@ -30,8 +31,8 @@
             
             //檔案最終存放位置((到時候上架路徑要改))
             $ServerRoot = $_SERVER["DOCUMENT_ROOT"];
-            $filePath = "http://localhost/DropbeatBackend/UploadImg/".$fileName_arr;
-            $safePics = $ServerRoot."/DropbeatBackend/UploadImg/".$fileName_arr;
+            $filePath = "http://localhost/Dropbeat/public/fundFile/".$fileName_arr;
+            $safePics = $ServerRoot."/Dropbeat/public/fundFile/".$fileName_arr;
             move_uploaded_file($filePath_Temp, $safePics);
             $theRealPath = $filePath;
             echo $theRealPath;

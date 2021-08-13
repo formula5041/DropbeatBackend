@@ -20,28 +20,28 @@
         // 存DB
         include('../Connection.php');
 
-        $activity_id = htmlspecialchars($_POST["activity_id"]);
+        // $activity_id = htmlspecialchars($_POST["activity_id"]);
         $initiator = htmlspecialchars($_POST["initiator"]);
         $activity_name = htmlspecialchars($_POST["activity_name"]);
         $activity_date = htmlspecialchars($_POST["activity_date"]);
         $activity_time = htmlspecialchars($_POST["activity_time"]);
-        $area = htmlspecialchars($_POST["area"]);
+        $activity_area = htmlspecialchars($_POST["activity_area"]);
         $place = htmlspecialchars($_POST["place"]);
         $info = htmlspecialchars($_POST["info"]);
 
         // 存取DONATE TABLE
-        $sql= "INSERT INTO ACTIVITY(activity_id, initiator, activity_name, activity_date, activity_time, area, place, info, activity_photo, setup_date, approved, remove, alter_date) VALUE (?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), 0, 0, NOW())";
+        $sql= "INSERT INTO ACTIVITY(initiator, activity_name, activity_date, activity_time, activity_area, place, info, activity_photo, setup_date, approved, remove, alter_date) VALUE (?, ?, ?, ?, ?, ?, ?, ?, NOW(), 0, 0, NOW())";
 
         $statement = $pdo ->prepare($sql);
-        $statement -> bindValue(1, $activity_id);
-        $statement -> bindValue(2, $initiator);
-        $statement -> bindValue(3, $activity_name);
-        $statement -> bindValue(4, $activity_date);
-        $statement -> bindValue(5, $activity_time);
-        $statement -> bindValue(6, $area);
-        $statement -> bindValue(7, $place);
-        $statement -> bindValue(8, $info);
-        $statement -> bindValue(9, $filePath);
+        // $statement -> bindValue(1, $activity_id);
+        $statement -> bindValue(1, $initiator);
+        $statement -> bindValue(2, $activity_name);
+        $statement -> bindValue(3, $activity_date);
+        $statement -> bindValue(4, $activity_time);
+        $statement -> bindValue(5, $activity_area);
+        $statement -> bindValue(6, $place);
+        $statement -> bindValue(7, $info);
+        $statement -> bindValue(8, $filePath);
         $statement -> execute();
     }
 ?>

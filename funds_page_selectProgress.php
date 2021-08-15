@@ -2,11 +2,11 @@
     include('./Connection.php');
     $progress = ($_POST["progressed"]);
     if ( $progress == 'progress0') {
-        $sql = "SELECT donate_id, initiator, donate_name, info, goal, setup_date, TIMESTAMPDIFF(DAY, NOW(), end_date) AS countdownDate, donate_photo, donate_num, round((goal_now/goal)*100) as goal_percent  from DONATE where TIMESTAMPDIFF(DAY, NOW(), end_date) > 0 and remove != 1";
+        $sql = "SELECT donate_id, initiator, donate_name, info, goal, setup_date, TIMESTAMPDIFF(DAY, NOW(), end_date) AS countdownDate, donate_photo, (donate_id) as toTheDonate from DONATE where TIMESTAMPDIFF(DAY, NOW(), end_date) > 0 and remove != 1";
     } else if ( $progress == 'progress1') {
-        $sql = "SELECT donate_id, initiator, donate_name, info, goal, setup_date, TIMESTAMPDIFF(DAY, NOW(), end_date) AS countdownDate, donate_photo, donate_num, round((goal_now/goal)*100) as goal_percent  from DONATE where TIMESTAMPDIFF(DAY, NOW(), end_date) < 0 and remove != 1";
+        $sql = "SELECT donate_id, initiator, donate_name, info, goal, setup_date, TIMESTAMPDIFF(DAY, NOW(), end_date) AS countdownDate, donate_photo, (donate_id) as toTheDonate from DONATE where TIMESTAMPDIFF(DAY, NOW(), end_date) < 0 and remove != 1";
     } else if ( $progress == 'progress2') {
-        $sql = "SELECT donate_id, initiator, donate_name, info, goal, setup_date, TIMESTAMPDIFF(DAY, NOW(), end_date) AS countdownDate, donate_photo, donate_num, round((goal_now/goal)*100) as goal_percent  from DONATE where remove != 1";
+        $sql = "SELECT donate_id, initiator, donate_name, info, goal, setup_date, TIMESTAMPDIFF(DAY, NOW(), end_date) AS countdownDate, donate_photo, (donate_id) as toTheDonate from DONATE where remove != 1";
     }
 
     $statement = $pdo->query($sql);

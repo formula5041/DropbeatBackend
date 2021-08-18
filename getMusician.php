@@ -12,9 +12,8 @@ $sql = "SELECT e.musician_id,
                              musician 
                       FROM music 
                       WHERE musician = ? 
-                            and 
+                            AND
                             publish = 1 ) d
-               ON e.musician_id = d.musician
         WHERE musician_id = ?";
 $statement = $pdo -> prepare($sql);
 $statement -> bindValue(1, $id);

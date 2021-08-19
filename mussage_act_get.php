@@ -1,10 +1,15 @@
 <?php
     include('./Connection.php');
-
-    $sql = "SELECT message_act_id, member, setup_date, content FROM MESSAGE_ACT";
-
+    $activeId = ($_POST["activity"]);
+    
+    $sql = "SELECT e.message_act_id, e.member, e.setup_date, e.content, d.account
+            FROM MESSAGE_ACT e
+            join MEMBER d
+            on d.member_id = e.member 
+            WHERE activity = $activeId";
+    
     $statement = $pdo->query($sql);
     $data = $statement->fetchAll();
 
-    echo json_encode($data); 
+    echo json_encode($data);
 ?>

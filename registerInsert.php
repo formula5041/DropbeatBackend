@@ -30,22 +30,24 @@
         
 
         // 抓到剛註冊完的member_id
-        $sqls = "SELECT member_id FROM MEMBER where account = ? ";
+        $sqls = "SELECT member_id, account FROM MEMBER where account = ? ";
 
         $statements = $pdo ->prepare($sqls);
         $statements -> bindValue(1, $account);
         $statements->execute();
         $data = $statements->fetch();
         echo $data[0];
+        echo $data[1];
 
 
 
         // 註冊音樂人(與註冊會員同步)
         
-        $sqlMusician= "INSERT INTO MUSICIAN(member, alter_date, remove) VALUE (?, NOW(),0)";
+        $sqlMusician= "INSERT INTO MUSICIAN(member, musician_name, alter_date, remove) VALUE (?, ?, NOW(),0)";
 
         $statementMusician = $pdo ->prepare($sqlMusician);
         $statementMusician -> bindParam(1, $data[0]);
+        $statementMusician -> bindParam(2, $data[1]);
         $statementMusician -> execute();
 
         echo $account.'帳號已建立';

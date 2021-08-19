@@ -25,7 +25,7 @@
         $statement -> bindParam(":pwd", $pwd);
         $statement -> bindParam(":email", $email);
         $statement -> bindParam(":birthday", $birthday);
-        $statement -> bindValue(":headshot", 'https://reurl.cc/XWMenM');
+        $statement -> bindValue(":headshot", '/default_avatar.jpg');
         $statement -> execute();
         
 
@@ -43,7 +43,7 @@
 
         // 註冊音樂人(與註冊會員同步)
         
-        $sqlMusician= "INSERT INTO MUSICIAN(member, musician_name, alter_date, remove) VALUE (?, ?, NOW(),0)";
+        $sqlMusician= "INSERT INTO MUSICIAN(member, musician_name, musicial_photo, alter_date, remove) VALUE (?, ?, '/default_avatar.jpg', NOW(),0)";
 
         $statementMusician = $pdo ->prepare($sqlMusician);
         $statementMusician -> bindParam(1, $data[0]);

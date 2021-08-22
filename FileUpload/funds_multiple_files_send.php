@@ -10,7 +10,8 @@
         
         //檔案最終存放位置((到時候上架路徑要改))
         $ServerRoot = $_SERVER["DOCUMENT_ROOT"];
-        $filePath = "http://localhost/Dropbeat/public/fundFile/".$fileName_arr;
+        // $filePath = "http://localhost/Dropbeat/public/fundFile/".$fileName_arr;
+        $filePath = '/fundFile/'.$fileName_arr;
         $safePics = $ServerRoot."/Dropbeat/public/fundFile/".$fileName_arr;
 
         move_uploaded_file($filePath_Temp, $safePics);

@@ -7,7 +7,7 @@
     from DONATE e
     join member d
     on e.initiator = d.member_id
-    where TIMESTAMPDIFF(DAY, NOW(), end_date) > 0 and remove != 1 
+    where TIMESTAMPDIFF(DAY, NOW(), end_date) > 0
     order by setup_date asc";
 
 

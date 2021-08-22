@@ -10,7 +10,7 @@ JOIN (
      FROM MUSIC e 
      LEFT JOIN (
                  SELECT COUNT(music) AS likenum, music 
-                 FROM dropbeat.LIKE 
+                 FROM tibamefe_tfd102g1.LIKE 
                  GROUP BY music) d
      ON e.music_id = d.music) d
 ON a.musician_id = d.musician
@@ -26,7 +26,7 @@ ORDER BY d.setup_date desc";
        FROM MUSIC e 
        LEFT JOIN (
                    SELECT COUNT(music) AS likenum, music 
-                   FROM dropbeat.LIKE 
+                   FROM tibamefe_tfd102g1.LIKE
                    GROUP BY music) d
        ON e.music_id = d.music) d
   ON a.musician_id = d.musician
@@ -42,7 +42,7 @@ ORDER BY d.setup_date desc";
          FROM MUSIC e 
          LEFT JOIN (
                      SELECT COUNT(music) AS likenum, music 
-                     FROM dropbeat.LIKE 
+                     FROM tibamefe_tfd102g1.LIKE 
                      GROUP BY music) d
          ON e.music_id = d.music) d
     ON a.musician_id = d.musician

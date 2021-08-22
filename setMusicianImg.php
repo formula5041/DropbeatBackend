@@ -14,7 +14,7 @@ if($_FILES['img']['error'] > 0){
   $albumPhotoType = $_FILES['img']['type'];
   $albumPhotoSize = $_FILES['img']['size'];
 }
-$albumPhotoPath = $ServerRoot.'/DropBeat/public/artist/'.$albumPhotoName;
+$albumPhotoPath = $ServerRoot.'/tfd102/project/g1/dist/artist/'.$albumPhotoName;
 $albumPhoto = '/artist/'.$albumPhotoName;
 move_uploaded_file($albumPhoto_temp, $albumPhotoPath);
 

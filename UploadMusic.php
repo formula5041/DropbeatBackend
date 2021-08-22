@@ -12,7 +12,7 @@
     $albumPhotoType = $_FILES['albumPhoto']['type'];
     $albumPhotoSize = $_FILES['albumPhoto']['size'];
   }
-  $albumPhotoPath = $ServerRoot.'/DropBeat/public/albumPhoto/'.$albumPhotoName;
+  $albumPhotoPath = $ServerRoot.'/tfd102/project/g1/dist/albumPhoto/'.$albumPhotoName;
   $albumPhoto = '/albumPhoto/'.$albumPhotoName;
 
   move_uploaded_file($albumPhoto_temp, $albumPhotoPath);
@@ -25,7 +25,7 @@
     $musicFileType = $_FILES['musicFile']['type'];
     $musicFileSize = $_FILES['musicFile']['size'];
   }
-  $musicFilePath = $ServerRoot.'/DropBeat/public/musicFile/'.$musicFileName;
+  $musicFilePath = $ServerRoot.'/tfd102/project/g1/dist/musicFile/'.$musicFileName;
   $musicFile = '/musicFile/'.$musicFileName;
 
   move_uploaded_file($musicFile_temp, $musicFilePath);
